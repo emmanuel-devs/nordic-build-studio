@@ -101,6 +101,12 @@ function HomePage() {
               Thirty years of cross-laminated timber, concrete and steel — delivered with
               prefabrication, tight sequencing and crews who have worked together for a decade.
             </p>
+            <ul className="grid gap-3 border-y border-border py-6 text-sm text-muted-foreground">
+              <li>Fixed-price design & build contracts</li>
+              <li>In-house carpentry, concrete and groundwork</li>
+              <li>Weekly cost and programme reporting</li>
+            </ul>
+
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/contact"
