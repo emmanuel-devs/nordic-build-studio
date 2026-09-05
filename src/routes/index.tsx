@@ -164,8 +164,8 @@ function HomePage() {
                 to="/services"
                 className="flex h-full flex-col rounded-3xl border border-border bg-card p-7 transition-colors hover:border-accent"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-secondary">
-                  <ServiceIcon name={service.icon} className="h-5 w-5" />
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-ink">
+                  <ServiceIcon name={service.icon} className="h-5 w-5 text-accent" />
                 </span>
                 <h3 className="mt-6 text-xl font-semibold">{service.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

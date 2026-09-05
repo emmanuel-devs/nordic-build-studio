@@ -50,8 +50,8 @@ function ServicesPage() {
           {services.map((service, i) => (
             <Reveal as="li" key={service.id} delay={(i % 2) * 90}>
               <article className="flex h-full flex-col rounded-3xl border border-border bg-card p-8">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent">
-                  <ServiceIcon name={service.icon} className="h-5 w-5 text-accent-foreground" />
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink">
+                  <ServiceIcon name={service.icon} className="h-5 w-5 text-accent" />
                 </span>
                 <h2 className="mt-6 text-2xl font-semibold">{service.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
