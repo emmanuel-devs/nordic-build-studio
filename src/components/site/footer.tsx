@@ -18,6 +18,37 @@ export function SiteFooter() {
         </div>
 
         <div>
+          <h3 className="text-sm font-semibold">Services</h3>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Commercial new-build
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Residential new-build
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Renovation &amp; refurbishment
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Design &amp; build
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Project development
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
           <h3 className="text-sm font-semibold">Company</h3>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
             <li>
