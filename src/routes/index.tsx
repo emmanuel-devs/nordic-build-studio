@@ -33,10 +33,10 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "150+", label: "Completed projects" },
-  { value: "100+", label: "People on the tools" },
   { value: "200+", label: "Repeat clients" },
+  { value: "150+", label: "Completed projects" },
   { value: "30", label: "Years building" },
+  { value: "100+", label: "People on the tools" },
 ];
 
 const proofPoints = [
