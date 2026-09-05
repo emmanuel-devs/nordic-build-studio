@@ -201,6 +201,39 @@ function ContactPage() {
               and we'll confirm whether we're bidding within three working days.
             </p>
           </div>
+
+          <div className="rounded-4xl border border-border bg-card p-8">
+            <h2 className="text-xl font-semibold">What happens next</h2>
+            <ol className="mt-6 space-y-5">
+              {[
+                {
+                  step: "1",
+                  title: "We read everything you send",
+                  text: "A project manager — not a bot — goes through your drawings, sketch or address within two working days.",
+                },
+                {
+                  step: "2",
+                  title: "Site walk-through",
+                  text: "We visit the site with you to check access, ground conditions and anything the drawings don't show.",
+                },
+                {
+                  step: "3",
+                  title: "Honest read, in writing",
+                  text: "Within five working days you get buildability, a realistic programme and a cost range. Free, no strings.",
+                },
+              ].map((item) => (
+                <li key={item.step} className="flex gap-4">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent font-display text-sm font-semibold text-accent-foreground">
+                    {item.step}
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold">{item.title}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </Reveal>
       </div>
     </section>

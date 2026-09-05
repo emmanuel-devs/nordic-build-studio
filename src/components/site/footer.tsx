@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-secondary/60">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="max-w-sm">
           <div className="flex items-center gap-2.5">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink">
@@ -15,6 +15,37 @@ export function SiteFooter() {
             Turnkey commercial and residential construction in Oslo and along the Norwegian coast.
             Design, build and deliver — from first sketch to handover.
           </p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold">Services</h3>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Commercial new-build
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Residential new-build
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Renovation &amp; refurbishment
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Design &amp; build
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-foreground">
+                Project development
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div>

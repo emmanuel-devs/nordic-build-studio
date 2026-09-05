@@ -55,7 +55,7 @@ export function SiteHeader() {
           to="/contact"
           className="ml-auto hidden shrink-0 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-ink-foreground transition-transform hover:-translate-y-0.5 md:ml-0 md:inline-flex"
         >
-          Book a call
+          Start a project
         </Link>
 
         <button
@@ -86,7 +86,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="mt-2 rounded-2xl bg-ink px-4 py-3 text-center text-base font-medium text-ink-foreground"
             >
-              Book a call
+              Start a project
             </Link>
           </nav>
         </div>

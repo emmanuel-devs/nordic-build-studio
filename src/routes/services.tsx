@@ -95,7 +95,7 @@ function ServicesPage() {
             to="/contact"
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground"
           >
-            Talk to us <ArrowRight className="h-4 w-4" />
+            Start a project <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
       </section>
