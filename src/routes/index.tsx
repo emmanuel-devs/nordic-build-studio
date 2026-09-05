@@ -3,7 +3,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, Check, Play } from "lucide-react";
 import { projectsQuery, servicesQuery } from "@/lib/queries";
 import { imageFor } from "@/lib/images";
-import heroSite from "@/assets/hero-site.jpg";
+import heroSite from "@/assets/project-harbor.jpg";
 import teamMeeting from "@/assets/team-meeting.jpg";
 import detailPlans from "@/assets/detail-plans.jpg";
 import { Reveal } from "@/components/site/reveal";
@@ -33,10 +33,10 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "150+", label: "Completed projects" },
-  { value: "100+", label: "People on the tools" },
   { value: "200+", label: "Repeat clients" },
+  { value: "150+", label: "Completed projects" },
   { value: "30", label: "Years building" },
+  { value: "100+", label: "People on the tools" },
 ];
 
 const proofPoints = [
@@ -89,23 +89,18 @@ function HomePage() {
           <div className="overflow-hidden rounded-4xl border border-border">
             <img
               src={heroSite}
-              alt="Two Nordbygg site managers reviewing drawings in front of a timber-framed building under construction"
-              width={1600}
-              height={1104}
+              alt="Completed Nordbygg harbour-front apartment building with a warm timber facade at dusk"
+              width={1400}
+              height={1000}
               className="aspect-[16/11] w-full object-cover"
             />
           </div>
 
-          <div className="flex flex-col justify-between gap-6 rounded-4xl border border-border bg-card p-7">
+          <div className="flex flex-col gap-6 rounded-4xl border border-border bg-card p-7">
             <p className="text-lg leading-relaxed">
               Thirty years of cross-laminated timber, concrete and steel — delivered with
               prefabrication, tight sequencing and crews who have worked together for a decade.
             </p>
-            <ul className="grid gap-3 border-y border-border py-6 text-sm text-muted-foreground">
-              <li>Fixed-price design & build contracts</li>
-              <li>In-house carpentry, concrete and groundwork</li>
-              <li>Weekly cost and programme reporting</li>
-            </ul>
 
             <div className="flex flex-wrap gap-3">
               <Link
@@ -121,14 +116,26 @@ function HomePage() {
                 See our work
               </Link>
             </div>
+
+            <ul className="mt-auto grid gap-3 border-t border-border pt-6 text-sm text-muted-foreground">
+              <li>Fixed-price design & build contracts</li>
+              <li>In-house carpentry, concrete and groundwork</li>
+              <li>Weekly cost and programme reporting</li>
+            </ul>
           </div>
         </div>
 
-        <dl className="mt-12 grid grid-cols-2 gap-8 border-t border-border pt-10 md:grid-cols-4">
+        <dl className="mt-12 grid grid-cols-2 border-t border-border md:grid-cols-4">
           {stats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 80}>
-              <dt className="font-display text-4xl font-semibold sm:text-5xl">{stat.value}</dt>
-              <dd className="mt-1 text-sm text-muted-foreground">{stat.label}</dd>
+            <Reveal
+              key={stat.label}
+              delay={i * 80}
+              className="border-border pt-10 not-last:border-r max-md:odd:border-r max-md:[&:nth-child(-n+2)]:border-b max-md:[&:nth-child(-n+2)]:pb-8 max-md:even:pl-8 md:not-last:pr-8 md:not-first:pl-8"
+            >
+              <dd className="eyebrow">{stat.label}</dd>
+              <dt className="mt-2 font-display text-5xl font-semibold tracking-tight sm:text-6xl">
+                {stat.value}
+              </dt>
             </Reveal>
           ))}
         </dl>

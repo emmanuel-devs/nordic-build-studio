@@ -35,7 +35,7 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
             {project.category} · {project.completed_on}
           </p>
           <h3 className="mt-2 text-xl font-semibold">{project.title}</h3>
-          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {project.summary}
           </p>
         </div>
