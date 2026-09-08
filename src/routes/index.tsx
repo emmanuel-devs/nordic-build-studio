@@ -75,55 +75,54 @@ function HomePage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 pt-10 sm:px-8 sm:pt-16">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-          <h1 className="max-w-3xl text-[clamp(2.5rem,7vw,4.75rem)] leading-[0.95] font-semibold">
+        <div className="max-w-3xl">
+          <h1 className="text-[clamp(2.5rem,7vw,4.75rem)] leading-[0.98] font-semibold">
             Turnkey construction for the way Norway builds now
           </h1>
-          <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
             We design, build and deliver commercial and residential projects across Oslo and the
             coast — one contract, one team, one accountable programme.
           </p>
-        </div>
-
-        <div className="mt-10 grid gap-4 lg:grid-cols-[1.55fr_1fr]">
-          <div className="overflow-hidden rounded-4xl border border-border">
-            <img
-              src={heroSite}
-              alt="Completed Nordbygg harbour-front apartment building with a warm timber facade at dusk"
-              width={1400}
-              height={1000}
-              className="aspect-[16/11] w-full object-cover"
-            />
-          </div>
-
-          <div className="flex flex-col gap-6 rounded-4xl border border-border bg-card p-7">
-            <p className="text-lg leading-relaxed">
-              Thirty years of cross-laminated timber, concrete and steel — delivered with
-              prefabrication, tight sequencing and crews who have worked together for a decade.
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
-              >
-                Start a project <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/projects"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
-              >
-                See our work
-              </Link>
-            </div>
-
-            <ul className="mt-auto grid gap-3 border-t border-border pt-6 text-sm text-muted-foreground">
-              <li>Fixed-price design & build contracts</li>
-              <li>In-house carpentry, concrete and groundwork</li>
-              <li>Weekly cost and programme reporting</li>
-            </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Start a project <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary"
+            >
+              See our work
+            </Link>
           </div>
         </div>
+
+        <div className="mt-12 overflow-hidden rounded-4xl border border-border">
+          <img
+            src={heroSite}
+            alt="Completed Nordbygg harbour-front apartment building with a warm timber facade at dusk"
+            width={1400}
+            height={1000}
+            className="aspect-[16/10] w-full object-cover sm:aspect-[21/9]"
+          />
+        </div>
+
+        <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground">
+          <li className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            Fixed-price design &amp; build contracts
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            In-house carpentry, concrete and groundwork
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            Weekly cost and programme reporting
+          </li>
+        </ul>
 
         <dl className="mt-12 grid grid-cols-2 border-t border-border md:grid-cols-4">
           {stats.map((stat, i) => (
