@@ -161,14 +161,12 @@ function ProjectDetail() {
         <section className="mx-auto mt-16 max-w-7xl px-5 sm:px-8">
           <div className="grid gap-4 sm:grid-cols-2">
             {project.gallery_keys.map((key, i) => (
-              <Reveal key={`${key}-${i}`} delay={i * 90}>
-                <img
+              <Reveal key={`${key}-${i}`} delay={i * 90} variant="clip">
+                <ParallaxImage
                   src={imageFor(key)}
                   alt={`${project.title} — detail ${i + 1}`}
-                  loading="lazy"
-                  width={1400}
-                  height={1000}
-                  className="aspect-[4/3] w-full rounded-3xl border border-border object-cover"
+                  strength={40}
+                  className="aspect-[4/3] rounded-3xl"
                 />
               </Reveal>
             ))}
