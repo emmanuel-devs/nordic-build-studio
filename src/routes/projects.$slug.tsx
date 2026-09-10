@@ -3,7 +3,10 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projectQuery, projectsQuery } from "@/lib/queries";
 import { imageFor } from "@/lib/images";
+import { parseMetrics } from "@/lib/case-study";
 import { Reveal } from "@/components/site/reveal";
+import { ParallaxImage } from "@/components/site/parallax-image";
+import { Magnetic } from "@/components/site/magnetic";
 import { ProjectCard } from "@/components/site/project-card";
 
 export const Route = createFileRoute("/projects/$slug")({
