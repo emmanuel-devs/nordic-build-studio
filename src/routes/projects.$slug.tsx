@@ -133,7 +133,7 @@ function ProjectDetail() {
           </div>
 
 
-          <Reveal delay={100}>
+          <Reveal delay={100} className="lg:sticky lg:top-28 lg:self-start">
             <dl className="rounded-3xl border border-border bg-card p-7">
               {specs.map((spec) => (
                 <div
@@ -145,12 +145,14 @@ function ProjectDetail() {
                 </div>
               ))}
             </dl>
-            <Link
-              to="/contact"
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:border-accent"
-            >
-              Discuss a similar project <ArrowRight className="h-4 w-4" />
-            </Link>
+            <Magnetic className="mt-4 w-full" strength={0.14}>
+              <Link
+                to="/contact"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:border-accent"
+              >
+                Discuss a similar project <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
