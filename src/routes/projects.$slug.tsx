@@ -88,16 +88,27 @@ function ProjectDetail() {
           {project.summary}
         </p>
 
-        <div className="mt-10 overflow-hidden rounded-4xl border border-border">
-          <img
-            src={imageFor(project.image_key)}
-            alt={`${project.title} in ${project.location}`}
-            width={1400}
-            height={1000}
-            className="aspect-[16/9] w-full object-cover"
-          />
-        </div>
+        <ParallaxImage
+          src={imageFor(project.image_key)}
+          alt={`${project.title} in ${project.location}`}
+          eager
+          className="mt-10 aspect-[16/9]"
+        />
+
+        {metrics.length > 0 ? (
+          <dl className="mt-10 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-3">
+            {metrics.map((metric, i) => (
+              <Reveal key={metric.label} delay={i * 90} className="bg-card p-7">
+                <dt className="eyebrow">{metric.label}</dt>
+                <dd className="mt-2 font-display text-4xl font-semibold tracking-tight">
+                  {metric.value}
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
+        ) : null}
       </section>
+
 
       <section className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.7fr]">
