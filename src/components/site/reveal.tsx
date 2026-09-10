@@ -38,7 +38,7 @@ export function Reveal({
       ref={ref as never}
       data-visible={visible}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn("reveal", className)}
+      className={cn(variant === "clip" ? "reveal-clip" : "reveal", className)}
     >
       {children}
     </Tag>
