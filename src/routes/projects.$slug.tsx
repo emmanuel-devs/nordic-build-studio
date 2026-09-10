@@ -58,8 +58,18 @@ function ProjectDetail() {
     { label: "Location", value: project.location },
     { label: "Client", value: project.client },
     { label: "Scope", value: project.scope },
+    { label: "Contract value", value: project.contract_value },
+    { label: "On site", value: project.duration },
     { label: "Completed", value: project.completed_on },
   ];
+
+  const metrics = parseMetrics(project.metrics);
+  const chapters = [
+    { label: "The challenge", body: project.challenge },
+    { label: "Our approach", body: project.approach },
+    { label: "The outcome", body: project.outcome },
+  ].filter((chapter) => chapter.body);
+
 
   return (
     <>
