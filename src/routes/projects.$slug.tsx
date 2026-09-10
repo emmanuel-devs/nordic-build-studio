@@ -3,7 +3,10 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projectQuery, projectsQuery } from "@/lib/queries";
 import { imageFor } from "@/lib/images";
+import { parseMetrics } from "@/lib/case-study";
 import { Reveal } from "@/components/site/reveal";
+import { ParallaxImage } from "@/components/site/parallax-image";
+import { Magnetic } from "@/components/site/magnetic";
 import { ProjectCard } from "@/components/site/project-card";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -55,8 +58,18 @@ function ProjectDetail() {
     { label: "Location", value: project.location },
     { label: "Client", value: project.client },
     { label: "Scope", value: project.scope },
+    { label: "Contract value", value: project.contract_value },
+    { label: "On site", value: project.duration },
     { label: "Completed", value: project.completed_on },
   ];
+
+  const metrics = parseMetrics(project.metrics);
+  const chapters = [
+    { label: "The challenge", body: project.challenge },
+    { label: "Our approach", body: project.approach },
+    { label: "The outcome", body: project.outcome },
+  ].filter((chapter) => chapter.body);
+
 
   return (
     <>
@@ -75,25 +88,52 @@ function ProjectDetail() {
           {project.summary}
         </p>
 
-        <div className="mt-10 overflow-hidden rounded-4xl border border-border">
-          <img
-            src={imageFor(project.image_key)}
-            alt={`${project.title} in ${project.location}`}
-            width={1400}
-            height={1000}
-            className="aspect-[16/9] w-full object-cover"
-          />
-        </div>
+        <ParallaxImage
+          src={imageFor(project.image_key)}
+          alt={`${project.title} in ${project.location}`}
+          eager
+          className="mt-10 aspect-[16/9]"
+        />
+
+        {metrics.length > 0 ? (
+          <dl className="mt-10 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-3">
+            {metrics.map((metric, i) => (
+              <Reveal key={metric.label} delay={i * 90} className="bg-card p-7">
+                <dt className="eyebrow">{metric.label}</dt>
+                <dd className="mt-2 font-display text-4xl font-semibold tracking-tight">
+                  {metric.value}
+                </dd>
+              </Reveal>
+            ))}
+          </dl>
+        ) : null}
       </section>
 
-      <section className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.7fr]">
-          <Reveal>
-            <h2 className="text-3xl font-semibold">About the build</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{project.body}</p>
-          </Reveal>
 
-          <Reveal delay={100}>
+      <section className="mx-auto mt-14 max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.7fr]">
+          <div>
+            <Reveal>
+              <p className="eyebrow">Case study</p>
+              <h2 className="mt-3 text-3xl font-semibold">About the build</h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{project.body}</p>
+            </Reveal>
+
+            <div className="mt-10 space-y-8 border-l border-border pl-6 sm:pl-8">
+              {chapters.map((chapter, i) => (
+                <Reveal key={chapter.label} delay={i * 90} className="relative">
+                  <span className="absolute top-2 -left-[26px] h-2 w-2 rounded-full bg-accent sm:-left-[34px]" />
+                  <h3 className="font-display text-xl font-semibold">{chapter.label}</h3>
+                  <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
+                    {chapter.body}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+
+          <Reveal delay={100} className="lg:sticky lg:top-28 lg:self-start">
             <dl className="rounded-3xl border border-border bg-card p-7">
               {specs.map((spec) => (
                 <div
@@ -105,12 +145,14 @@ function ProjectDetail() {
                 </div>
               ))}
             </dl>
-            <Link
-              to="/contact"
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:border-accent"
-            >
-              Discuss a similar project <ArrowRight className="h-4 w-4" />
-            </Link>
+            <Magnetic className="mt-4 w-full" strength={0.14}>
+              <Link
+                to="/contact"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold transition-colors hover:border-accent"
+              >
+                Discuss a similar project <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
@@ -119,14 +161,12 @@ function ProjectDetail() {
         <section className="mx-auto mt-16 max-w-7xl px-5 sm:px-8">
           <div className="grid gap-4 sm:grid-cols-2">
             {project.gallery_keys.map((key, i) => (
-              <Reveal key={`${key}-${i}`} delay={i * 90}>
-                <img
+              <Reveal key={`${key}-${i}`} delay={i * 90} variant="clip">
+                <ParallaxImage
                   src={imageFor(key)}
                   alt={`${project.title} — detail ${i + 1}`}
-                  loading="lazy"
-                  width={1400}
-                  height={1000}
-                  className="aspect-[4/3] w-full rounded-3xl border border-border object-cover"
+                  strength={40}
+                  className="aspect-[4/3] rounded-3xl"
                 />
               </Reveal>
             ))}

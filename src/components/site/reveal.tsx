@@ -6,11 +6,13 @@ export function Reveal({
   className,
   delay = 0,
   as: Tag = "div",
+  variant = "rise",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   as?: "div" | "section" | "li" | "article";
+  variant?: "rise" | "clip";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -36,7 +38,7 @@ export function Reveal({
       ref={ref as never}
       data-visible={visible}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn("reveal", className)}
+      className={cn(variant === "clip" ? "reveal-clip" : "reveal", className)}
     >
       {children}
     </Tag>

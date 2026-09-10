@@ -7,6 +7,8 @@ import heroSite from "@/assets/project-harbor.jpg";
 import teamMeeting from "@/assets/team-meeting.jpg";
 import detailPlans from "@/assets/detail-plans.jpg";
 import { Reveal } from "@/components/site/reveal";
+import { ParallaxImage } from "@/components/site/parallax-image";
+import { Magnetic } from "@/components/site/magnetic";
 import { ProjectCard } from "@/components/site/project-card";
 import { ServiceIcon } from "@/components/site/service-icon";
 
@@ -84,30 +86,34 @@ function HomePage() {
             coast — one contract, one team, one accountable programme.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Start a project <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary"
-            >
-              See our work
-            </Link>
+            <Magnetic>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground"
+              >
+                Start a project <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary"
+              >
+                See our work
+              </Link>
+            </Magnetic>
           </div>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-4xl border border-border">
-          <img
+        <Reveal variant="clip" className="mt-12">
+          <ParallaxImage
             src={heroSite}
             alt="Completed Nordbygg harbour-front apartment building with a warm timber facade at dusk"
-            width={1400}
-            height={1000}
-            className="aspect-[16/10] w-full object-cover sm:aspect-[21/9]"
+            eager
+            strength={70}
+            className="aspect-[16/10] sm:aspect-[21/9]"
           />
-        </div>
+        </Reveal>
 
         <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground">
           <li className="flex items-center gap-2">
