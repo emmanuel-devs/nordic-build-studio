@@ -110,12 +110,28 @@ function ProjectDetail() {
       </section>
 
 
-      <section className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
+      <section className="mx-auto mt-14 max-w-7xl px-5 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.7fr]">
-          <Reveal>
-            <h2 className="text-3xl font-semibold">About the build</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{project.body}</p>
-          </Reveal>
+          <div>
+            <Reveal>
+              <p className="eyebrow">Case study</p>
+              <h2 className="mt-3 text-3xl font-semibold">About the build</h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{project.body}</p>
+            </Reveal>
+
+            <div className="mt-10 space-y-8 border-l border-border pl-6 sm:pl-8">
+              {chapters.map((chapter, i) => (
+                <Reveal key={chapter.label} delay={i * 90} className="relative">
+                  <span className="absolute top-2 -left-[26px] h-2 w-2 rounded-full bg-accent sm:-left-[34px]" />
+                  <h3 className="font-display text-xl font-semibold">{chapter.label}</h3>
+                  <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
+                    {chapter.body}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
 
           <Reveal delay={100}>
             <dl className="rounded-3xl border border-border bg-card p-7">
