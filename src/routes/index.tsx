@@ -7,6 +7,8 @@ import heroSite from "@/assets/project-harbor.jpg";
 import teamMeeting from "@/assets/team-meeting.jpg";
 import detailPlans from "@/assets/detail-plans.jpg";
 import { Reveal } from "@/components/site/reveal";
+import { ParallaxImage } from "@/components/site/parallax-image";
+import { Magnetic } from "@/components/site/magnetic";
 import { ProjectCard } from "@/components/site/project-card";
 import { ServiceIcon } from "@/components/site/service-icon";
 
