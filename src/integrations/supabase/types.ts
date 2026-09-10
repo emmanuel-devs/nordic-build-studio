@@ -49,16 +49,22 @@ export type Database = {
       }
       projects: {
         Row: {
+          approach: string
           body: string
           category: string
+          challenge: string
           client: string
           completed_on: string
+          contract_value: string
           created_at: string
+          duration: string
           featured: boolean
           gallery_keys: string[]
           id: string
           image_key: string
           location: string
+          metrics: Json
+          outcome: string
           scope: string
           slug: string
           sort_order: number
@@ -67,16 +73,22 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          approach?: string
           body?: string
           category?: string
+          challenge?: string
           client?: string
           completed_on?: string
+          contract_value?: string
           created_at?: string
+          duration?: string
           featured?: boolean
           gallery_keys?: string[]
           id?: string
           image_key?: string
           location?: string
+          metrics?: Json
+          outcome?: string
           scope?: string
           slug: string
           sort_order?: number
@@ -85,16 +97,22 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          approach?: string
           body?: string
           category?: string
+          challenge?: string
           client?: string
           completed_on?: string
+          contract_value?: string
           created_at?: string
+          duration?: string
           featured?: boolean
           gallery_keys?: string[]
           id?: string
           image_key?: string
           location?: string
+          metrics?: Json
+          outcome?: string
           scope?: string
           slug?: string
           sort_order?: number
