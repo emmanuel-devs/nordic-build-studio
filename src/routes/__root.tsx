@@ -128,11 +128,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <RouteProgress />
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
         <main className="flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <SiteFooter />
       </div>
