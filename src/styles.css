@@ -189,6 +189,45 @@
   color: var(--color-muted-foreground);
 }
 
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes brand-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes brand-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@utility page-enter {
+  animation: page-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility brand-spin {
+  animation: brand-spin 0.9s linear infinite;
+}
+
+@utility brand-pulse {
+  animation: brand-pulse 1.6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-clip {
@@ -196,5 +235,10 @@
     transform: none;
     clip-path: none;
     transition: none;
+  }
+
+  .page-enter,
+  .brand-pulse {
+    animation: none;
   }
 }
