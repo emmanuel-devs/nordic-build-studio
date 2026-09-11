@@ -33,12 +33,29 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  // The clip variant must not sit on the observed node: a clip-path zeroes the
+  // intersection rect, so the observer would never fire and the element would
+  // stay hidden forever. Clip an inner wrapper instead.
+  if (variant === "clip") {
+    return (
+      <Tag ref={ref as never} className={className}>
+        <div
+          data-visible={visible}
+          style={{ transitionDelay: `${delay}ms` }}
+          className="reveal-clip h-full w-full"
+        >
+          {children}
+        </div>
+      </Tag>
+    );
+  }
+
   return (
     <Tag
       ref={ref as never}
       data-visible={visible}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn(variant === "clip" ? "reveal-clip" : "reveal", className)}
+      className={cn("reveal", className)}
     >
       {children}
     </Tag>
