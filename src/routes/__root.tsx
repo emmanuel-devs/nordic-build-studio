@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
+import { RouteProgress } from "@/components/site/route-progress";
+import { PageTransition } from "@/components/site/page-transition";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
